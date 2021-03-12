@@ -1,0 +1,86 @@
+\chapter{Технологическая часть}
+
+%\addcontentsline{toc}{section}{Технологическая часть}
+
+\section{Выбор технических средств}
+
+В качестве языка программирования, на котором будет реализовано программное обеспечение, выбран язык программирования C++ \cite{cpp}. Выбор языка обусловлен тем, что в нём есть поддержка объектно-ориентированной парадигмы, а также для этого языка существует фреймворк Qt \cite{qt}, предоставляющая полный функционал, который нужен для создания пользовательского интерфейса программного обеспечения. 
+
+В качестве среды разработки выбран QtCreator \cite{qtc}, позволяющий легко работать с фраймворком  Qt и содержащий большим количеством инструментов для различных языка программирования С++.
+
+\section{Листинг кода}
+
+В листингах 3.1 – 3.8 приведен исходный код реализации алгоритма симуляции водной поверхности.
+
+Алгоритм разделён на модули: генерация волн Герстнера, обработчик волн, обработчик перемещения и поворотов, z-buffer с обработчиком освещения.
+
+
+\begin{lstinputlisting}[
+	caption={Заголовочный файл модуля обработчик волн.},
+	label={lst:mhc},
+	style={cpp},
+	]{../handler_waves.h}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Файл реализации модуля обработчик волн.},
+	label={lst:mhc},
+	style={cpp},
+	]{../handler_waves.cpp}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Заголовочный файл обработчика перемещения и поворотов.},
+	label={lst:mhc},
+	style={cpp},
+	]{../handler_transform.h}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Файл реализации обработчика перемещения и поворотов.},
+	label={lst:mhc},
+	style={cpp},
+	]{../handler_transform.cpp}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Заголовочный файл генерации волн.},
+	label={lst:mhc},
+	style={cpp},
+	]{../waves.h}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Файл реализации генерации волн.},
+	label={lst:mhc},
+	style={cpp},
+	]{../waves.cpp}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Заголовочный файл z-buffer с обработчиком освещения.},
+	label={lst:mhc},
+	style={cpp},
+	]{../z_buffer.h}
+\end{lstinputlisting}
+
+
+\begin{lstinputlisting}[
+	caption={Файл реализации z-buffer с обработчиком освещения.},
+	label={lst:mhc},
+	style={cpp},
+	]{../z_buffer.cpp}
+\end{lstinputlisting}
+
+
+\newpage
+
+
+\subsection*{Вывод}
+В данном разделе были рассмотренны средства реализации программного обеспечения и листинги исходных кодов программного обеспечения.
