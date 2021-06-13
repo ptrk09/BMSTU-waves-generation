@@ -91,14 +91,14 @@ void ZBuffer::fill_scene(QImage *image) {
             }
 
             xScanLine1 = (x1 < -1*std::numeric_limits<float>::max()) ? -1*std::numeric_limits<float>::max() : x1;
-            xScanLine2 = (x2 < f_width) ? x2 : f_width;
+            xScanLine2 = (x2 < f_width - 1) ? x2 : f_width - 1;
             for (int xScanLine = round(xScanLine1); xScanLine < round(xScanLine2); xScanLine++) {
                 float tc = (x1 - xScanLine) / (x1 - x2);
                 z = z1 + tc * (z2 - z1);
 
 
                 int index = (int)round((xScanLine) +(yScanLine) * f_width);
-                if (z > m_buffer[index]) {
+                if (index < z_buffer_size && z > m_buffer[index]) {
                     int clr = qRgba(Light::check_rgb_color((int)(qRed(i1) + tc*(qRed(i2) - qRed(i1)))),
                                     Light::check_rgb_color((int)(qGreen(i1) + tc*(qGreen(i2) - qGreen(i1)))),
                                     Light::check_rgb_color((int)(qBlue(i1) + tc*(qBlue(i2) - qBlue(i1)))), 100);

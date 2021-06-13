@@ -1,6 +1,7 @@
 #include "dialog_set_wave.h"
 #include "ui_dialog_set_wave.h"
 
+
 dialog_set_wave::dialog_set_wave(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::dialog_set_wave) {
@@ -43,6 +44,23 @@ void dialog_set_wave::on_pushButton_clicked() {
     double dir_x = ui->doubleSpinBox_dir_x->value();
     double dir_y = ui->doubleSpinBox_dir_y->value();
 
+    double omega = 2 / len;
+    if (check_steep(steep, amplitude, omega)) {
+        QString valueAsString = QString::number(1 / (amplitude * omega));
+        QMessageBox::warning(this, "Внимание","Кривизна должна быть в диапозоне: \n(0; " + valueAsString + ")");
+        return;
+    }
+
     main_handler->set_main_wave(Point2D(point1_x, point1_y), Point2D(point2_x, point2_y), count, MathVector2D(dir_x, dir_y), amplitude, len, speed, steep);
     main_handler->reset_wave();
 }
+
+
+bool dialog_set_wave::check_steep(double steep, double amplitude, double omega) {
+    if (steep < 0 || steep > 1 / (amplitude * omega)) {
+        return true;
+    }
+    return false;
+}
+
+

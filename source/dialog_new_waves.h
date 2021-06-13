@@ -2,6 +2,7 @@
 #define DIALOG_NEW_WAVES_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 #include "handler.h"
 
@@ -26,6 +27,7 @@ private:
     void delete_wave();
     shared_ptr<Handler> main_handler;
     Ui::dialog_new_waves *ui;
+    bool check_steep(double steep, double amplitude, double omega);
 };
 
 #endif // DIALOG_NEW_WAVES_H

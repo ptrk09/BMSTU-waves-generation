@@ -97,29 +97,6 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>dz</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_move_dz">
-        <property name="minimum">
-         <number>-180</number>
-        </property>
-        <property name="maximum">
-         <number>180</number>
-        </property>
-        <property name="value">
-         <number>5</number>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
     <item>

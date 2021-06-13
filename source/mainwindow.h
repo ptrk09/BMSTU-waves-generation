@@ -12,6 +12,7 @@
 #include "light_color_dialog.h"
 #include "dialog_set_wave.h"
 #include "dialog_new_waves.h"
+#include "dialog_menu_info.h"
 
 #include "math_graphics.h"
 #include "handler.h"
@@ -41,6 +42,8 @@ private slots:
     void on_pushButton_4_clicked();
     void on_pushButton_5_clicked();
 
+    void on_pushButton_7_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
@@ -50,6 +53,7 @@ private:
     Light_Color_Dialog *lcd;
     dialog_set_wave *dsw;
     dialog_new_waves *dnw;
+    Dialog_menu_info *dminf;
     shared_ptr<Handler> main_handler;
     bool is_run_timer;
     void run_timer();

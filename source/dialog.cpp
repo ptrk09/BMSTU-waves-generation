@@ -59,7 +59,7 @@ Dialog::~Dialog()
 void Dialog::on_pushButton_clicked() {
     dx_move = ui->spinBox_move_dx->text().toDouble();
     dy_move = ui->spinBox_move_dy->text().toDouble();
-    dz_move = ui->spinBox_move_dz->text().toDouble();
+    dz_move = 0;//ui->spinBox_move_dz->text().toDouble();
 
     dx_rotate = ui->spinBox_rotate_dx->text().toDouble();
     dy_rotate = ui->spinBox_rotate_dy->text().toDouble();

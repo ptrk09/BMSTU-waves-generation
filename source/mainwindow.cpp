@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     dsw = new dialog_set_wave(this);
     dnw = new dialog_new_waves(this);
+    dminf = new Dialog_menu_info(this);
 
     msec = 0;
     is_run_timer = false;
@@ -109,16 +110,10 @@ void MainWindow::on_pushButton_clicked() {
 
 
 void MainWindow::update_wave() {
-    #ifdef _TEST_TIME_
-        Debuger::start_time();
-    #endif
+
     msec += 0.2;
     main_handler->simulation_by_time(msec);
     render_frame();
-    #ifdef _TEST_TIME_
-        Debuger::finish_time();
-        Debuger::print_double(Debuger::get_tik(), "(time render)");
-    #endif
 
 }
 
@@ -168,4 +163,9 @@ void MainWindow::stop_timer() {
         is_run_timer = false;
     }
 
+}
+
+void MainWindow::on_pushButton_7_clicked() {
+    dminf->setWindowFlags(dminf->windowFlags() | Qt::WindowStaysOnTopHint);
+    dminf->show();
 }

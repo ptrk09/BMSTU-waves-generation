@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "handler.h"
+#include <QMessageBox>
 
 namespace Ui {
 class dialog_set_wave;
@@ -21,6 +22,7 @@ private slots:
 private:
     Ui::dialog_set_wave *ui;
     shared_ptr<Handler> main_handler;
+    bool check_steep(double steep, double amplitude, double omega);
 };
 
 #endif // DIALOG_SET_WAVE_H

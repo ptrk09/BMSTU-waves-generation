@@ -26,6 +26,13 @@ void dialog_new_waves::on_pushButton_clicked() {
             + " dir x:" + QString::number(dir_x,'f', 2) + " dir y:" + QString::number(dir_y,'f', 2)
             + " steep:" + QString::number(steep,'f', 6);
 
+    double omega = 2 / len;
+    if (check_steep(steep, amplitude, omega)) {
+        QString valueAsString = QString::number(1 / (amplitude * omega));
+        QMessageBox::warning(this, "Внимание","Кривизна должна быть в диапозоне: \n(0; " + valueAsString + ")");
+        return;
+    }
+
     ui->listWidget->addItem(valueAsString);
     main_handler->append_from_dsw(amplitude, len, speed, MathVector2D(dir_x, dir_y), steep);
 }
@@ -47,4 +54,11 @@ void dialog_new_waves::update_list_waves(vector<QString> disc) {
         ui->listWidget->addItem(disc[i]);
     }
 
+}
+
+bool dialog_new_waves::check_steep(double steep, double amplitude, double omega) {
+    if (steep < 0 || steep > 1 / (amplitude * omega)) {
+        return true;
+    }
+    return false;
 }
